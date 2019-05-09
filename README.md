@@ -68,4 +68,99 @@ the code”. The areas of cryptography and cryptanalysis together are called cry
 
 ![Cryptography method](https://www.researchgate.net/profile/Abdel_Nasser_Zaied/publication/319959875/figure/fig3/AS:541169702248448@1506036319917/RSA-Algorithm-Asymmetric-Key-Cryptography.png)
 
+## Applications Of PUFs
+  1. Security related areas such as circuit identification and authentication.
+  2. Hardware intellectual property protection.\n
+  3. Device remote activation.
+  4. Trustworthy computing.
+  5. Software Licensing and Anonymous Computation.
+  6. Low cost authentication.
 
+## Proposed Ring Oscillator PUF
+In this section we give a brief description of the proposed ROPUF architecture. In the
+first part of this section, we explain the main principle of this ROPUF. Then, the
+proposed ROPUF circuit is described and ultimately, some modifications of the ROPUF
+design are presented.
+In a physical device, no gate can switch instantaneously. ​ The output of every inverter in a
+ring oscillator changes a finite amount of time after the input has changed. From here, it
+can be easily seen that adding more inverters to the chain increases the total gate delay,
+reducing the frequency of oscillation.
+The oscillator period is in all cases equal to twice the sum of the individual delays of all
+stages.
+Each ring oscillates with a unique frequency depending on the characteristics of each of
+its inverters, which variate unpredictably from cell to cell due to manufacturing
+variations, even within the same chip, and are impossible to imitate. If the frequencies at
+which the ring oscillators oscillate are too high, the counters may not be able to count
+oscillations; therefore, there is a minimal number of inverters in every ring oscillator
+necessary to ensure a suitable oscillating frequency.
+
+### The main principle of the proposed RO-PUF
+
+The main motivation of this proposal was the simplicity of implementation and more
+efficient use of ROs. In the classical approach, the frequencies of ROs are compared and
+the result of this comparison produces one output bit for PUF. In order to achieve
+unpredictability of the PUF outputs, this approach requires all ROs to be mutually
+symmetric so that the differences in frequencies of ROs are influenced only by the
+random variations in delays of logic gates and interconnects.
+
+![ropuf](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl86td4gxQcpV8TOKbGxR6Fb9H9eWa8iKpCSr8easLabjk6uVEAQ)
+
+## Simulation Result
+
+#### Timing Summary
+
+> Speed Grade: -5
+  > - Minimum period: 5.188ns (Maximum Frequency: 192.754MHz).
+  > - Minimum input arrival time before clock: 4.125ns.
+  > - Maximum output required time after clock: 4.642ns.
+  > - Maximum combinational path delay: 166.328ns.
+  
+> Total REAL time to Xst completion: 30.00 secs
+
+> Total CPU time to Xst completion: 30.51 secs
+
+> Total memory usage is 250492 kilobytes
+
+#### Place And Route
+
+> - Number of Slices 2278 out of 4656 48%.
+> - Number of SLICEMs 0 out of 2328 0%.
+
+> Total REAL time to Placer completion: 3 secs.
+
+> Total CPU time to Placer completion: 3 secs.
+
+> Total REAL time to Router completion: 9 secs.
+
+> Total CPU time to Router completion: 9 secs.
+
+#### Map
+
+ >   Number of Slice Flip Flops: 16 out of 9,312 1%
+ 
+ >   Number of 4 input LUTs: 2,317 out of 9,312 24%
+ 
+ >   Logic Distribution:
+ >   - Number of occupied Slices: 2,278 out of 4,656 48%
+ >   - Number of Slices containing only related logic: 2,278 out of 2,278 100%
+ 
+ >   Total Number of 4 input LUTs: 2,331 out of 9,312 25%
+ 
+> Peak Memory Usage: 221 MB
+
+> Total REAL time to MAP completion: 1 secs
+
+> Total CPU time to MAP completion: 1 secs
+
+
+## Conclusion
+
+In this era of digital technology, online storage, computing and security, it has becomes
+vital to protect cryptographic keys stored on computing devices. The secret data stored in
+these devices can be easily read or reverse engineered and copied. In this light, physical
+unclonable function (PUF) comes in handy as a new secure and low-cost primitive for
+integrated circuit (IC) authentication and counterfeit prevention, since it can identify a
+single microelectronic chip by extracting its internal random differences from
+manufacturing data. The most beneficial characteristic of PUF is that even if someone
+knows the challenge response pair for particular chip, he can’t generate the same chip by
+using the same manufacturing process.
